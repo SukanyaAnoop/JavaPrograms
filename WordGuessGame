@@ -1,0 +1,42 @@
+package Game;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class WordGuess {
+	
+	public static void main(String[] args) {
+			int score=100,i,count=0;
+			String name="Energy";
+			String letter = null;
+			int len=name.length();
+			for(i=0;i<=len-1;i++) {
+			while(score!=0) {
+		System.out.println("Guess the character\n");
+		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
+		try {
+			letter=br.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		if(!(name.contains(letter))) {
+			score-=10;
+		System.out.println("Score is:"+score);
+		}	
+			else {
+				System.out.println("Match found");
+		        System.out.println("Current Score is:\n"+score);
+		        score+=10;
+		        count+=1;
+		        if(count==len) {
+		        	System.out.println("Game over\nYou won\n");
+		        }
+		   }
+		 }
+		}
+			System.out.println("Your chance is over\nYou lose the game\n");
+	  }
+	}
+
+
